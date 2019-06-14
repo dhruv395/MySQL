@@ -1,1 +1,6 @@
 # MySQL
+select user,host  from mysql.user;
+drop user admin@localhost;
+create user 'username'@'ip' identified by 'pasw';
+grant all privileges on dbname.* to 'username'@'localhost' identified by 'pasw' with grant option;
+grant all privileges on dbname.* to 'username'@'ip1' identified by 'pasw' with grant option;
