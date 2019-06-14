@@ -1,5 +1,15 @@
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+
+user management:
 select user,host  from mysql.user;
 drop user admin@localhost;
 create user 'username'@'ip' identified by 'pasw';
 grant all privileges on dbname.* to 'username'@'localhost' identified by 'pasw' with grant option;
 grant all privileges on dbname.* to 'username'@'ip1' identified by 'pasw' with grant option;
+
+mysql -u user -h remote_database_server_ip -p
+for remote connection:
+vim /etc/mysql/mysql.conf.d/mysqld.cnf
+comment out this 
+#bind-address            = 127.0.0.1
+and restart mysql service
