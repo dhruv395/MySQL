@@ -1,0 +1,6 @@
+
+Now login to both server and run commands:
+
+create user 'replication_user'@'%' identified by 'Coke@dm1n'
+grant replication slave on *.* to 'replication_user'@'%';
+
