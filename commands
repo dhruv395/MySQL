@@ -13,3 +13,8 @@ vim /etc/mysql/mysql.conf.d/mysqld.cnf
 comment out this 
 #bind-address            = 127.0.0.1
 and restart mysql service
+
+
+show status like 'Conn%';
+show processlist;
+show status where `variable_name`='Threads_connected';
