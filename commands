@@ -1,4 +1,6 @@
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
+Connect to RDS MySQL: 
+mysql -h <endpoint> -P 3306 -u <mymasteruser> -p 
 
 Backup: 
 #mysqldump -u root -p mylabdb > /mylabdb_backup.sql 
