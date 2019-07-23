@@ -1,0 +1,6 @@
+
+/etc/my.cnf 
+
+Port- 3306 
+
+Package: MySQLD 
