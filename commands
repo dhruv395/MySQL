@@ -1,5 +1,10 @@
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 
+Backup: 
+#mysqldump -u root -p mylabdb > /mylabdb_backup.sql 
+Encrypt backup: 
+#openssl enc -aes-256-cbc -in /mylabdb_backup.sql -out /db_backup_dummy.file 
+
 user management:
 select user,host  from mysql.user;
 drop user admin@localhost;
@@ -18,3 +23,113 @@ and restart mysql service
 show status like 'Conn%';
 show processlist;
 show status where `variable_name`='Threads_connected';
+
+
+How to set MySQL Root password? 
+mysqladmin -u root password YOURNEWPASSWORD 
+
+ How to Change MySQL Root password? 
+mysqladmin -u root -p(old password. (no space betn p & pass)) password  'xyz123' 
+
+ How would you check if MySql service is running or not? 
+service mysqld status 
+
+ If the service is running/stop how would you stop/start the service? 
+service mysqld start and to stop use service mysqld stop. 
+
+ How will you login to MySQL from Linux Shell? 
+mysql -u root -p 
+
+ How will you obtain list of all the databases? 
+show databases; 
+
+ How will you switch to a database, and start working on that? 
+use database_name; 
+
+ How will you get the list of all the tables, in a database? 
+show tables; 
+
+ How will you get the Field Name and Type of a MySql table? 
+describe table_name; 
+
+ How will you delete a table? 
+drop table table_name; 
+
+ What about database? How will you delete a database? 
+drop database database-name; 
+
+ How will you see all the contents of a table? 
+select * from table_name; 
+
+ 
+To create a user: 
+
+>create user 'labuser'@'redhat' identified by 'labuser123'; 
+
+>grant all on mylabdb.* to 'labuser' identified by 'Labuser@123'; 
+
+>flush privileges; 
+
+ 
+Delete a user: 
+
+>drop user labuser;---------to delete a user from db 
+
+ 
+
+Create table: 
+
+>create table employee (empname char(20),department char(20),title char(20)); 
+
+>describe table employee; 
+
+>insert into employee(empname,department,title) values("dhruv","IT","Engineer"); 
+
+or> INSERT INTO pet 
+
+    -> VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL); 
+
+>select * from employee; 
+
+ 
+
+>  UPDATE pet SET birth = '1989-08-31' WHERE name = 'Bowser'; 
+
+>  SELECT * FROM pet WHERE name = 'Bowser'; 
+
+>SELECT * FROM pet WHERE species = 'dog' AND sex = 'f'; 
+
+> SELECT * FROM pet WHERE species = 'snake' OR species = 'bird'; 
+
+>SELECT * FROM pet WHERE (species = 'cat' AND sex = 'm') 
+
+    -> OR (species = 'dog' AND sex = 'f'); 
+
+>SELECT name, species, birth FROM pet 
+
+    -> WHERE species = 'dog' OR species = 'cat'; 
+
+
+To see current connections: 
+> show processlist; 
+>  select database();------to see current database 
+> show variables like "port" ---------------- to see port no in mysql db 
+> show variables like "max_connection" --------to see max connection allowed in db 
+
+ 
+UPDATE DATABASE: 
+> update pet set birth = '1989-08-31' where name= 'Bowser'; 
+
+ Troubleshooting MySQL: 
+If unable to remotely connect MYSQL db then run command 
+# nmap -p 3306 server IP 
+
+state should not be filtered should be open, if so then allow port 3306 in firewall where mysql db is installed. 
+
+- we can check this by command 
+# firewall-cmd --list-all 
+
+To allow port 3306 run command 
+# firewall-cmd --zone=public --add-port=3306/tcp --permanent 
+
+#firewall-cmd --reload 
