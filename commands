@@ -1,3 +1,4 @@
+https://www.linode.com/docs/databases/mysql/use-mysqldump-to-back-up-mysql-or-mariadb/
 https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04
 Connect to RDS MySQL: 
 mysql -h <endpoint> -P 3306 -u <mymasteruser> -p 
