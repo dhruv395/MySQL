@@ -5,6 +5,9 @@ mysql -h <endpoint> -P 3306 -u <mymasteruser> -p
 
 Backup: 
 #mysqldump -u root -p mylabdb > /mylabdb_backup.sql 
+How to Backup Remote MySQL Database?
+mysqldump -h 172.16.25.126 -u root -ptecmint gallery > gallery.sql
+
 Encrypt backup: 
 #openssl enc -aes-256-cbc -in /mylabdb_backup.sql -out /db_backup_dummy.file 
 
