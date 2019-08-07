@@ -11,6 +11,11 @@ mysqldump -h 172.16.25.126 -u root -ptecmint gallery > gallery.sql
 Encrypt backup: 
 #openssl enc -aes-256-cbc -in /mylabdb_backup.sql -out /db_backup_dummy.file 
 
+Restore a Backup:
+mysql -u [username] -p [databaseName] < [filename].sql
+Restore an entire DBMS backup
+mysql -u root -p < full-backup.sql
+
 user management:
 select user,host  from mysql.user;
 drop user admin@localhost;
