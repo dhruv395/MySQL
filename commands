@@ -94,13 +94,26 @@ Create table:
 
 >describe table employee; 
 
+#####Insert Values in Field:
+
 >insert into employee(empname,department,title) values("dhruv","IT","Engineer"); 
-
 or> INSERT INTO pet 
+-> VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL); 
 
-    -> VALUES ('Puffball','Diane','hamster','f','1999-03-30',NULL); 
+INSERT INTO <tablename> VALUES ('1' , 'Ravi' , 'Saive' , 'raivsaive@xyz.com' , 'India' );
+
+########inserting more than 1 value at a time:
+INSERT INTO <tablename> VALUES ('2' , 'Narad' , 'Shrestha' , 'narad@xyz.com' , 'India' ), 
+('3' , 'user' , 'singh' , 'user@xyz.com' , 'Aus' ), ('4' , 'tecmint' , '[dot]com' , 'tecmint@gmail.com' , 'India' );
 
 >select * from employee; 
+
+###You can view the columns you created in the table “minttec” as:
+show columns from minttec; 
+
+to add a column say ‘last_name‘ after column ‘first_name‘.
+ALTER TABLE minttec ADD last_name varchar (20) AFTER first_name; 
+
 
  
 
@@ -119,6 +132,10 @@ or> INSERT INTO pet
 >SELECT name, species, birth FROM pet 
 
     -> WHERE species = 'dog' OR species = 'cat'; 
+
+Rename Table in MySQL
+RENAME TABLE minttec TO tecmint_table;
+
 
 
 To see current connections: 
