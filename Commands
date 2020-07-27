@@ -1,0 +1,33 @@
+To check DB size
+
+SELECT table_schema AS "tracker", 
+ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size in (GB)" 
+FROM information_schema.TABLES 
+GROUP BY table_schema;
+
+create user 'readonly'@'%' identified by "password";
+grant select on `dbname`.* to 'readonly' identified by 'password';
+
+show grants for user
+GRANT USAGE ON *.* TO 'user'@'%'                  |
+GRANT ALL PRIVILEGES ON `user`.* TO 'user'@'%'
+SHOW VARIABLES LIKE 'validate_password%';
+
+*******************
+
+revoke all privileges, grant option from hemant;
+
+How to change user password?
+update user set authentication_string=password('1111') where user='username';
+flush privileges
+
+grant select on tracker.* to username;
+grant select on tracker.* to user identified by "pass"
+GRANT USAGE ON newdb.* TO ‘anthony’@’localhost’ IDENTIFIED BY ‘text password’;
+GRANT SELECT, INSERT, DELETE ON database TO username@'localhost' IDENTIFIED BY 'password';
+grant select,insert,delete,alter on tracker.* to user@localhost;
+GRANT SELECT, INSERT, CREATE, ALTER ON `tracker`.* TO 'user'@'localhost'
+###
+grant references on tracker.* to 'user'@'%'; 
+####
+show grants for pavan@localhost;
